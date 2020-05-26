@@ -9,6 +9,7 @@ import static org.hamcrest.core.IsNot.not;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -32,15 +33,18 @@ public class LoginBienTest {
   public void setUp() {
 	  System.setProperty("webdriver.gecko.driver", "drivers/geckodriver.exe");
 		 System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
-		 ChromeOptions chromeOptions = new ChromeOptions();
-			chromeOptions.setHeadless(true);
-		    driver = new ChromeDriver(chromeOptions);
+		//ChromeOptions chromeOptions = new ChromeOptions();
+			//chromeOptions.setHeadless(true);
+		    //driver = new ChromeDriver(chromeOptions);
+			FirefoxOptions firefoxOptions = new FirefoxOptions();
+			firefoxOptions.setHeadless(true);
+		    driver = new FirefoxDriver(firefoxOptions);
     js = (JavascriptExecutor) driver;
     vars = new HashMap<String, Object>();
   }
   @After
   public void tearDown() {
-    driver.quit();
+    //driver.quit();
   }
   @Test
   public void loginBien() {
